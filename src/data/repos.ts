@@ -130,6 +130,8 @@ export const IMPOSTAZIONI_DEFAULT: Impostazioni = {
   chips: [...CHIPS_DEFAULT],
   bloccoAttivo: false,
   pinHash: null,
+  pinSale: null,
+  passkeyId: null,
   autoLockMinuti: AUTO_LOCK_DEFAULT_MINUTI,
   ultimoBackup: null,
 }

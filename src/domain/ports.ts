@@ -29,8 +29,9 @@ export interface ParserPiano {
    * Valida e converte un template (§2): foglio PIANO, 35 righe giorno×pasto,
    * coerenza di BloccatoAlGiorno sulla giornata. Pura: non tocca lo stato,
    * la sostituzione del piano attivo è una decisione separata dell'utente (§ Pagina Piano).
+   * Async per permettere il caricamento lazy di SheetJS (~0,5 MB, serve solo qui).
    */
-  parse(contenuto: ArrayBuffer): EsitoParse
+  parse(contenuto: ArrayBuffer): Promise<EsitoParse>
 }
 
 // ------------------------------------------------------------------ repository

@@ -1,6 +1,6 @@
 import { read, utils } from 'xlsx'
 import { GIORNI, PASTI, type Giorno, type GiornataPiano, type Pasto, type VocePiano } from '../domain/types'
-import type { ErroreValidazione, EsitoParse, ParserPiano } from '../domain/ports'
+import type { ErroreValidazione, EsitoParse } from '../domain/ports'
 
 const FOGLIO = 'PIANO'
 const INTESTAZIONI = [
@@ -17,7 +17,9 @@ function testo(cella: unknown): string {
   return cella == null ? '' : String(cella).trim()
 }
 
-export class ParserPianoXlsx implements ParserPiano {
+// Implementazione sincrona; il ParserPiano del contratto (async) la incapsula in
+// servizi.ts con import dinamico, così SheetJS non pesa sul bundle di avvio.
+export class ParserPianoXlsx {
   parse(contenuto: ArrayBuffer): EsitoParse {
     const errori: ErroreValidazione[] = []
     const avvisi: string[] = []

@@ -96,8 +96,12 @@ export interface Impostazioni {
   /** Set corrente dei chip nota; i record storici conservano i chip con cui furono salvati. */
   chips: string[]
   bloccoAttivo: boolean
-  /** Hash del PIN (mai in chiaro); null se il PIN non è impostato. */
+  /** Hash SHA-256 di sale+PIN (mai in chiaro); null se il PIN non è impostato. */
   pinHash: string | null
+  /** Sale casuale del PIN. */
+  pinSale: string | null
+  /** rawId (base64) della passkey Face ID/Touch ID; null se non creata o non supportata. */
+  passkeyId: string | null
   autoLockMinuti: number
   /** Timestamp ISO dell'ultimo export backup; guida il promemoria del lunedì. */
   ultimoBackup: string | null

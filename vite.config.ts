@@ -3,10 +3,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// base: './' finché il nome del repository GitHub Pages non è deciso;
-// andrà fissata a '/<nome-repo>/' insieme a scope/start_url del manifest.
+// Pubblicata su https://alessandrogambetti.github.io/piano-nutrizionale/
+// (vite-plugin-pwa deriva scope e start_url del manifest da questa base).
 export default defineConfig({
-  base: './',
+  base: '/piano-nutrizionale/',
   plugins: [
     react(),
     VitePWA({
